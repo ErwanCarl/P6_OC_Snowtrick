@@ -193,3 +193,57 @@ body > div.container.snowtrick-new, .container.snowtrick-show, .form-button {
 .owl-carousel.owl-drag .owl-item {
     text-align: center;
 }
+
+/* ------------------ Account settings page -------------------- */
+
+/* .logo-choice-pic label {
+    display: none;
+} */
+
+/* .logo-choice-pic {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo-choice-pic label[for="choice-1"] {
+    background-image: url(/users_logo/user.png);
+}
+
+.logo-choice-pic label[for="choice-2"] {
+    background-image: url(users_logo/user-2.png);
+}
+
+.logo-choice-pic label[for="choice-3"] {
+    background-image: url(users_logo/bonsai.png);
+}
+
+.logo-choice-pic label[for="choice-4"] {
+    background-image: url(users_logo/doc.png);
+}
+
+.logo-choice-pic label[for="choice-5"] {
+    background-image: url(users_logo/drawing.png);
+}
+
+.logo-choice-pic label[for="choice-6"] {
+    background-image: url(users_logo/epee.png);
+}
+
+.logo-choice-pic label[for="choice-7"] {
+    background-image: url(users_logo/flower.png);
+}
+
+.logo-choice-pic label[for="choice-8"] {
+    background-image: url(users_logo/globe.png);
+}
+
+.logo-choice-pic label[for="choice-9"] {
+    background-image: url(users_logo/heart.png);
+}
+
+.logo-choice-pic label[for="choice-10"] {
+    background-image: url(users_logo/horla.png);
+} */

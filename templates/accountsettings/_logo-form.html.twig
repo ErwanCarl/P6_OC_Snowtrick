@@ -1,0 +1,11 @@
+{{ form_start(logoForm, {action: path('app_logo_settings')}) }}
+    {{ form_widget(logoForm._token)}}
+    <div class ="logo-choice-pic">
+        {{ form_label(logoForm.logoChoice) }}
+        {{ form_widget(logoForm.logoChoice, {'choice_attr': {'data-image': asset('/users_logo/user.png')}}) }}
+    </div>
+
+    <div class="form-button">
+        {{ form_row(logoForm.ajouter) }}
+    </div>
+{{ form_end(logoForm) }}
