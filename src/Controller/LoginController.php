@@ -51,8 +51,8 @@ class LoginController extends AbstractController
         $resetPasswordForm->handleRequest($request);
 
         if ($resetPasswordForm->isSubmitted() && $resetPasswordForm->isValid()) {
-            $email = $resetPasswordForm->get('resetPasswordMail')->getData();
-            $user = $userRepository->findOneByEmail($email);
+            $mail = $resetPasswordForm->get('resetPasswordMail')->getData();
+            $user = $userRepository->findOneByMail($mail);
             if ($user == null) {
                 $this->addFlash(
                     'success',
@@ -82,7 +82,7 @@ class LoginController extends AbstractController
     #[Route('/reset-password/{accountKey}', name: 'app_reset_password')]
     public function verifyAccountEmail(Request $request, string $accountKey, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher) : Response
     {
-        $user = $userRepository->findOneByKey($accountKey);
+        $user = $userRepository->findOneByAccountKey($accountKey);
 
         if(!$user) {
             $this->addFlash(

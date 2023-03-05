@@ -1,9 +1,5 @@
 /* ------------------ Form -------------------- */
 
-/* label.required:after {
-    content: "*";
-    padding-left : 2px;
-} */
 
 .login-form {
     display:flex;
@@ -37,6 +33,32 @@
 
 body {
     background-color :rgb(247, 224, 238);
+}
+
+#navbarColor02 > ul > div.header-p1 > div > p {
+    color: rgb(158, 156, 156);
+    font-family: 'Parisienne';
+    padding: 8px;
+    margin-bottom: 0;
+}
+
+.header-p2 li:nth-child(1), .header-p2 li:nth-child(2) {
+    border-right: solid 1px rgb(158, 156, 156);
+}
+
+.footer-resp {
+    display: none;
+}
+
+.banner-logo {
+    max-width: 20px;
+    max-height:20px;
+}
+
+.author-logo {
+    max-width: 40px;
+    max-height: 40px;
+    border: solid 3px grey;
 }
 
 .copyright {
@@ -192,4 +214,105 @@ body > div.container.snowtrick-new, .container.snowtrick-show, .form-button {
 
 .owl-carousel.owl-drag .owl-item {
     text-align: center;
+}
+
+/* ------------------ Account settings page -------------------- */
+
+/* ------------------ Pagination -------------------- */
+
+.pagination_bloc {
+    justify-content: center;
+    margin: auto;
+    max-width: 60%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.other_pagination, .actual_pagination {
+    margin: 0 10px 50px 10px;
+    background-color: #6c4ccc;
+    border: solid 2px #ced4da;
+    padding: 5px 0 0 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.actual_pagination {
+    color: white;
+}
+
+.other_pagination a {
+    color: #e07dc3;
+    text-decoration: none;
+    padding: 0;
+}
+
+/* ------------------ Chat -------------------- */
+
+.comment-bloc {
+    width: 70%;
+    border : solid 2px #ced4da;
+    border-radius: 2px;
+    margin: auto;
+    border-bottom: none;
+}
+
+.comments_author h4, .comments_content h4 {
+    font-size: 16px;
+}
+
+#no_comment {
+    border-bottom : solid 2px #ced4da;
+    border-radius: 2px;
+}
+
+#no_comment p {
+    padding-left: 20px;
+    font-style: italic;
+}
+
+.comments_author h4 {
+    font-weight: lighter;
+}
+
+.comment_head {
+    display: flex;
+    background-color: #8cc293;
+    border-bottom : solid 2px #ced4da;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-family: 'Parisienne';
+    font-weight: bold;
+}
+
+.comment_head h4 {
+    padding: 10px 0 5px 20px;
+}
+
+.comment_bar {
+    margin: 20px auto 20px 0;
+    color: #8cc293;
+}
+
+hr:not([size]) {
+    height: 2px;
+}
+
+.comments_list h4 {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#comment_connect {
+    margin: 100px auto 50px auto;
+}
+
+.comments_author {
+    display: flex;
+}
+
+.comment-input {
+    width: 70%;
+    margin:  20px auto 0 auto;
 }

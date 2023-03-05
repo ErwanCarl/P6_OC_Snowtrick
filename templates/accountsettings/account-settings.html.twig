@@ -13,10 +13,60 @@
         {{ include('accountsettings/_password_modify_form.html.twig') }}
     </div>
 
-    <div class="logo-modify">
+    <hr class="settings-bar">
+
+    <div class="container logo-modify">
         <h4>Paramétrage de votre logo utilisateur</h4>
+
+        <form id="logo-form" action="{{ path('app_logo_settings') }}" method="post">
+            <fieldset>
+                <legend>Sélectionnez votre logo</legend>
+                <div class="logo-form-input">
+                    <input type="radio" id="user" name="logo" value="user.png" required>
+                    <label for="user"><img src="{{ asset('users_logo/user.png') }}"></label> 
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="user-2" name="logo" value="user-2.png" required>
+                    <label for="user-2"><img src="{{ asset('users_logo/user-2.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="bonsai" name="logo" value="bonsai.png" required>
+                    <label for="bonsai"><img src="{{ asset('users_logo/bonsai.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="doc" name="logo" value="doc.png" required>
+                    <label for="doc"><img src="{{ asset('users_logo/doc.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="drawing" name="logo" value="drawing.png" required>
+                    <label for="drawing"><img src="{{ asset('users_logo/drawing.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="epee" name="logo" value="epee.png" required>
+                    <label for="epee"><img src="{{ asset('users_logo/epee.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="flower" name="logo" value="flower.png" required>
+                    <label for="flower"><img src="{{ asset('users_logo/flower.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="globe" name="logo" value="globe.png" required>
+                    <label for="globe"><img src="{{ asset('users_logo/globe.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="heart" name="logo" value="heart.png" required>
+                    <label for="heart"><img src="{{ asset('users_logo/heart.png') }}"></label>
+                </div>
+                <div class="logo-form-input">
+                    <input type="radio" id="horla" name="logo" value="horla.png" required>
+                    <label for="horla"><img src="{{ asset('users_logo/horla.png') }}"></label>
+                </div>
+
+                <div class="form_button">
+                    <button class="btn btn-success" type="submit">Confirmer</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
-
-
 
 {% endblock %}

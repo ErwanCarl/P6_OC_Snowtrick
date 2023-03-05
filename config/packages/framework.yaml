@@ -9,6 +9,7 @@ framework:
     # Remove or comment this section to explicitly disable session support.
     session:
         name: 'my_session'
+        save_path: '%kernel.project_dir%/sessions'
         handler_id: null
         cookie_secure: auto
         cookie_samesite: lax

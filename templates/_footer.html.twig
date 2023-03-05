@@ -1,13 +1,15 @@
 {% block footerbar %}
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark bg-dark footer-resp">
         <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_snowtrick_index') }}"><i class="bi bi-house pe-2"></i>Accueil</a></li>
+            {% if app.user %}
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_snowtrick_new') }}"><i class="bi bi-vector-pen"></i>Création</a></li>
+            {% endif %}
             {% if app.user %}
                 <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}"><i class="bi bi-box-arrow-left pe-2"></i>Déconnexion</a></li>
             {% else %}
                 <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}"><i class="bi bi-box-arrow-in-right pe-2"></i>Connexion</a></li>
             {% endif %}
-            <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-gear-wide-connected pe-2"></i>Administration</a></li>
-            <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-bank pe-2"></i>Mentions Légales</a></li>
         </ul>
     </nav>
 

@@ -37,10 +37,7 @@ class SnowtrickType extends AbstractType
                 'class' => TrickGroup::class,
                 'choice_label' => 'label ',
                 'placeholder' => 'Sélectionnez',
-                'label' => 'Groupe ',
-                'constraints' => [
-                    new NotBlank(message: 'Vous devez assigner la figure à un groupe.', groups: ['new', 'edit'])
-                ]
+                'label' => 'Groupe '
             ])
             ->add('pictures', CollectionType::class, [
                 'label' => 'Images',

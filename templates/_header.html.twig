@@ -1,11 +1,6 @@
 {% block navbar %}
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <div class="user-banner">
-        <p>Bienvenue, {{ app.user.nickname }}.</p>
-    </div>
-{% endif %}
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark header-no-resp">
     <div class="container-fluid justify-content-center">
         <a class="navbar-brand m-0" href=""></a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +9,17 @@
         <div class="navbar-collapse collapse justify-content-center" style="width:90%" id="navbarColor02">
             <ul class="navbar-nav" style="text-align:center">
                 <div class="header-p1">
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_snowtrick_index') }}"><i class="bi bi-house pe-2"></i>Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-envelope pe-2"></i>Contact</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <div class="user-banner">
+                            <p><img src="{{ asset('users_logo/') }}{{ app.user.logo }}" class="banner-logo"> Bienvenue, {{ app.user.nickname }}.</p>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="header-p2">
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_snowtrick_index') }}"><i class="bi bi-house pe-2"></i>Accueil</a></li>
+                    {% if app.user %}
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_snowtrick_new') }}"><i class="bi bi-vector-pen pe-2"></i>Création</a></li>
+                    {% endif %}
                     {% if app.user %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle pe-2"></i>{{app.user.nickname}}</a>

@@ -1,0 +1,24 @@
+{{ form_start(logoForm, {action: path('app_logo_settings')}) }}
+    {{ form_widget(logoForm._token)}}
+    <div class ="logo-choice-pic">
+        {{ form_label(logoForm.logoChoice) }}
+        {{ form_widget(logoForm.logoChoice, {'choice_attr': 
+            {
+                'choice-1' : {'data-image': asset('users_logo/user.png')},
+                'choice-2' : {'data-image': asset('users_logo/user-2.png')},
+                'choice-3' : {'data-image': asset('users_logo/bonsai.png')},
+                'choice-4' : {'data-image': asset('users_logo/doc.png')},
+                'choice-5' : {'data-image': asset('users_logo/drawing.png')},
+                'choice-6' : {'data-image': asset('users_logo/epee.png')},
+                'choice-7' : {'data-image': asset('users_logo/flower.png')},
+                'choice-8' : {'data-image': asset('users_logo/globe.png')},
+                'choice-9' : {'data-image': asset('users_logo/heart.png')},
+                'choice-10' : {'data-image': asset('users_logo/horla.png')}
+            }
+        })}}
+    </div>
+
+    <div class="form-button">
+        {{ form_row(logoForm.ajouter) }}
+    </div>
+{{ form_end(logoForm) }}

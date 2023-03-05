@@ -17,9 +17,9 @@
                     </div>
                     <div class="snowtrick-info">
                         <div>
-                            <a href="{{ path('app_snowtrick_show', {'slug': snowtrick.slug, 'id': snowtrick.id}) }}"><i class="bi bi-search"></i>{{ snowtrick.title }}</a>
+                            <a href="{{ path('app_snowtrick_show', {'id': snowtrick.id, 'slug': snowtrick.slug, 'page': 1}) }}"><i class="bi bi-search"></i>{{ snowtrick.title }}</a>
                         </div>
-                        {% if app.user == snowtrick.user %}
+                        {% if app.user == snowtrick.user or is_granted('ROLE_ADMIN') %}
                             <div>
                                 <a href="{{ path('app_snowtrick_edit', {'id': snowtrick.id}) }}"><i class="bi bi-pencil btn btn-warning"></i></a>
                             </div>
@@ -44,9 +44,12 @@
         </div>
     </div>
 
-    {% if app.user %}
-        <div class="creation-link">
-            <a href="{{ path('app_snowtrick_new') }}" class="btn btn-primary">Création</a>
-        </div>
+    {% if isLoaded is null %}
+        <form action="{{ path('app_snowtrick_index') }}" method="post">
+                <input type="hidden" name="loadmore" value="loadmore">
+                <button type="submit">Charger</button>
+            </div>
+        </form>
     {% endif %}
+
 {% endblock %}

@@ -40,6 +40,17 @@ class SnowtrickRepository extends ServiceEntityRepository
         }
     }
 
+     // return limited number of snowtricks
+     public function limitedSnowtricks()
+     {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.creationDate', 'DESC')
+            ->setFirstResult(0)
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getResult();
+     }
+
 //    /**
 //     * @return Snowtrick[] Returns an array of Snowtrick objects
 //     */

@@ -60,34 +60,39 @@
                 </tr>
                 <tr>
                     <th>CreationDate</th>
-                    <td>{{ snowtrick.creationDate ? snowtrick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ snowtrick.creationDate|date('Y-m-d H:i:s') }}</td>
                 </tr>
                 <tr>
                     <th>ModificationDate</th>
-                    <td>{{ snowtrick.modificationDate ? snowtrick.modificationDate|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ snowtrick.modificationDate|date('Y-m-d H:i:s') }}</td>
                 </tr>
             </tbody>
         </table>
 
-        {% if app.user == snowtrick.user %}
+        {% if app.user == snowtrick.user or is_granted('ROLE_ADMIN') %}
             <a href="{{ path('app_snowtrick_edit', {'id': snowtrick.id}) }}" class="btn btn-success">Modifier</a>
         {% endif %}
 
-        {% if app.user == snowtrick.user %}
+        {% if app.user == snowtrick.user or is_granted('ROLE_ADMIN') %}
             {{ include('snowtrick/_delete_form.html.twig') }}
         {% endif %}
 
-        <div class="comment-bloc">
-            <div class="comment-bloc-title">
-                <h3>Chat<h3>
+        <div class="comment-bloc" id="comment_anchor">
+            <div class="comment_head" id="comment_post">
+                <h4>Chat<h4>
             </div>
-            <div class="comment-bloc-messages">
+            <div class="comments_list">
                 {% if chatMessages %}
                     {% for chatMessage in chatMessages %}
                         <div class="comments_author">
-                            <h6>
-                                <em>{{ chatMessage.creationDate }} - <strong>{{ chatMessage.user.nickname }} {{ chatMessage.user.name }}</strong></em> a écrit : 
-                            </h6>
+                            <div class="author-pic">
+                                <img src="{{ asset('users_logo/') }}{{ app.user.logo }}" class="author-logo">
+                            </div>
+                            <div class="author-name">
+                                <h6>
+                                    <em>{{ chatMessage.creationDate|date('Y-m-d H:i:s') }} - <strong>{{ chatMessage.user.nickname }} {{ chatMessage.user.name }}</strong></em> a écrit : 
+                                </h6>
+                            </div>
                         </div>
 
                         <div class="comments_content">
@@ -99,10 +104,28 @@
                         <hr class="comment_bar"> 
                     {% endfor %}
                 {% else %}
-                    <p>Il n'y a aucun message dans le chat pour l'instant sur cette figure.</p>
+                    <div class="comments_list" id="no_comment">
+                        <p>Il n'y a aucun message dans le chat pour l'instant sur cette figure.</p>
+                    </div>
                 {% endif %}
             </div>
         </div>
+
+        {% if chatMessages is not empty %}
+            <div class="pagination_bloc">
+                {% for i in 1..pageNumber %} 
+                    {% if i == currentPage %}
+                        <div class="actual_pagination">
+                            {{ i }}
+                        </div>
+                    {% else %}
+                        <div class="other_pagination">
+                            <a href="{{ path('app_snowtrick_show', {'slug': snowtrick.slug, 'id': snowtrick.id, 'page': i })}}#comment_anchor">{{ i }}</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
 
         <div class="comment-input">
             {% if app.user %}
