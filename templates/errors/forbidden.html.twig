@@ -3,14 +3,14 @@
 {% block title %}Erreur 403 - Accès interdit{% endblock %}
 
 {% block body %}
-   <div id="forbidden_page" class="text-center text-secondary">
-        <h1 class="display-1 text-danger font-title font-weight-bold">403</h1>
+   <div id="forbidden_page" class="text-center text-secondary error-page">
+        <h1 class="display-1 text-danger font-title font-weight-bold">Erreur 403</h1>
         <h3 class="display-4 font-title">L'accès à la page a été refusé.</h3>
 
         <div>
             L'accès à la page que vous tentez d'afficher vous a été refusé.
         </div>
-        <div class="back_home">
+        <div class="back-home-error">
             Vous pouvez revenir à <a href="{{ path('app_snowtrick_index') }}">l'accueil</a>.
         </div>
     </div>

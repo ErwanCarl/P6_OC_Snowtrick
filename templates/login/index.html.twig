@@ -4,27 +4,33 @@
 
 {% block body %}
     <div class="container mt-5 login-form">
+        <div class="login-title">
+            <h1>Page de connexion</h1>
+        </div>
 
-        <h1>Page de connexion</h1>
+        <div class="form-login">
+            <form action="{{ path('app_login') }}" method="post">
+                    <div class="form-login-input">
+                        <label for="username">Email</label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}">
+                    </div>
+                    <div class="form-login-input">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="_password">
+                    </div>
+                    <div class="form-login-input">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <input type="hidden" name="_target_path" value="/">
+                        <button type="submit" class="btn btn-dark">Connexion</button>
+                    </div>
+                    <div class="account-created-resp">
+                        <a href="{{ path('app_register') }}">Créer un compte</a>
+                    </div>
+            </form>
 
-        <form action="{{ path('app_login') }}" method="post">
-                <div>
-                    <label for="username">Email</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}">
-                </div>
-                <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="_password">
-                </div>
-                <div>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                    <input type="hidden" name="_target_path" value="/">
-                    <button type="submit">Connexion</button>
-                </div>
-        </form>
-
-        <div class="lost-password">
-            <a href="{{ path('app_lost_password') }}" class="btn btn-secondary">Mot de passe perdu</a>
+            <div class="lost-password">
+                <a href="{{ path('app_lost_password') }}" class="btn btn-secondary">Mot de passe perdu</a>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -16,7 +16,7 @@ class ChatMessageType extends AbstractType
     {
         $builder
             ->add('content', TextareaType::class, [
-                'label' => 'Message',
+                'label' => ' ',
                 'attr' => ['class' => 'tinymce'],
                 'sanitize_html' => true,
                 'constraints' => [
@@ -24,7 +24,7 @@ class ChatMessageType extends AbstractType
                 ],
             ])
             ->add('envoyer', SubmitType::class, [
-                'label' => 'Envoyer',
+                'label' => 'Laisser un commentaire',
                 'attr' => ['class' => 'save btn-success']
             ]);
     }

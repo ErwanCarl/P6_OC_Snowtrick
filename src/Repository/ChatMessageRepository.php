@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Snowtrick;
 use App\Entity\ChatMessage;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<ChatMessage>
@@ -37,6 +38,17 @@ class ChatMessageRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    // return the number of messages linked to a snowtrick
+    public function countChatMessages(Snowtrick $snowtrick)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->andWhere('c.snowtrick = :snowtrick')
+            ->setParameter('snowtrick', $snowtrick)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
 //    /**

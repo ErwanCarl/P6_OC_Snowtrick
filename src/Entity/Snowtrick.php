@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SnowtrickRepository;
+use DateTimeImmutable;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -54,7 +55,7 @@ class Snowtrick
 
     #[ORM\ManyToOne(inversedBy: 'snowtricks', targetEntity: TrickGroup::class)]
     #[ORM\JoinColumn(nullable: false)]
-    #[Assert\NotNull(message: 'Vous devez assigner un groupe.', groups: ['new', 'edit'])]
+    #[Assert\NotNull(message: 'Vous devez assigner un groupe à la figure.', groups: ['new', 'edit'])]
     private ?TrickGroup $trickGroup = null;
 
     #[ORM\OneToMany(mappedBy: 'snowtrick', targetEntity: ChatMessage::class, orphanRemoval: true)]
@@ -129,10 +130,9 @@ class Snowtrick
         return $this;
     }
 
-    public function getCreationDate(): ?string
+    public function getCreationDate(): ?\DateTimeImmutable
     {
-        $creationDateDisplay = $this->creationDate->format('d-m-Y H:i:s');
-        return $creationDateDisplay;
+        return $this->creationDate;
     }
 
     public function setCreationDate(\DateTimeImmutable $creationDate): self
@@ -142,15 +142,9 @@ class Snowtrick
         return $this;
     }
 
-    public function getModificationDate(): ?string
+    public function getModificationDate(): ?\DateTimeImmutable
     {
-        $modifValue = $this->modificationDate;
-        if(!$modifValue == null) {
-            $modificationDateDisplay = $modifValue->format('d-m-Y H:i:s');
-            return $modificationDateDisplay;
-        } else {
-            return null;
-        }
+        return $this->modificationDate;
     }
 
     public function setModificationDate(?\DateTimeImmutable $modificationDate): self

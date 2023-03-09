@@ -11,7 +11,7 @@ class ErrorController extends AbstractController
     #[Route('/error/notfound', name: 'app_not_found', methods: ['GET'])]
     public function notfound(): Response
     {
-        return $this->render('errors/notfound.html.twig');
+        return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
 
     #[Route('/error/forbidden', name: 'app_forbidden', methods: ['GET'])]

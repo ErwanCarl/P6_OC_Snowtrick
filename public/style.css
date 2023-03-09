@@ -1,16 +1,5 @@
 /* ------------------ Form -------------------- */
 
-/* label.required:after {
-    content: "*";
-    padding-left : 2px;
-} */
-
-.login-form {
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-}
-
 .collection-form {
     display: flex;
     margin: 20px 0;
@@ -23,7 +12,7 @@
 }
 
 #trick_pictures, #trick_videos {
-    margin: 50px 0 30px 0;
+    margin: 20px 0 10px 0;
 }
 
 .hidden-block .mb-3 {
@@ -36,7 +25,61 @@
 /* ------------------ Général / Home -------------------- */
 
 body {
-    background-color :rgb(247, 224, 238);
+    background-color :rgb(255, 255, 255);
+}
+
+.header-only-resp {
+    display: none;
+}
+
+.alert {
+    margin: 0;
+}
+
+.home-bg {
+    background-image: url(website-pictures/snowboard-bg.png);
+    margin: 0 auto 80px auto;
+    text-align: center;
+    min-height: 700px;
+}
+
+.home-bg a:active, .home-bg a:visited, .home-bg a:link, .arrow-up a:active, .arrow-up a:visited, .arrow-up a:link {
+    color: black;
+}
+
+.home-bg a,.home-bg i {
+    position: relative;
+    top: 40px;
+    left: 520px;
+}
+
+.sentence {
+    padding: 80px 0;
+}
+
+.sentence p {
+    padding-top: 30px;
+    color: pink;
+}
+
+#navbarColor02 > ul > div.header-p1 > div > p {
+    color: rgb(158, 156, 156);
+    font-family: 'Parisienne';
+    padding: 8px;
+    margin-bottom: 0;
+}
+
+.header-p2 li:nth-child(1), .header-p2 li:nth-child(2) {
+    border-right: solid 1px rgb(158, 156, 156);
+}
+
+.footer-resp {
+    display: none;
+}
+
+.banner-logo {
+    max-width: 25px;
+    max-height: 25px;
 }
 
 .copyright {
@@ -48,11 +91,6 @@ body {
     color: rgba(255,255,255,.55);
     border-top: 1px solid rgba(255,255,255,.55);
 
-}
-
-.home-bg {
-        margin: 80px auto;
-        text-align: center;
 }
 
 body a, body button, h1 {
@@ -93,14 +131,225 @@ margin: auto 50px;
     margin: 40px auto;
 }
 
-/* ------------------ Snowtrick New / Show -------------------- */
+/* ------------------ Snowtrick New -------------------- */
+
+#trick_pictures, #trick_videos {
+    margin: 30px 0 20px 0;
+}
+
+body > div.container.snowtrick-new > form > div.form-button {
+    text-align: center;
+}
+
+.snowtrick-new h1, .edit-page h1 {
+    text-align: center;
+}
+
+#trick_videos > h4 {
+    margin-bottom: 18px;
+}
+
+.snowtrick-new label, .snowtrick-new h4, .edit-page label, .edit-page h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ------------------ Chat -------------------- */
+
+.comments_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chat-bloc {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.comment-bloc {
+    width: 100%;
+    margin: 20px auto 0 auto;
+    border-bottom: none;
+}
+
+.content-show {
+    margin: 0 auto 80px auto; 
+    width: 70%;
+}
+
+#no_comment {
+    margin-bottom: 30px;
+}
+
+.snow-title {
+    display: flex;
+    justify-content: center;
+}
+
+.comments_author {
+    width: 80%;
+    border: solid 2px black;
+    border-radius: 2px;
+    padding: 0 10px 0 10px;
+}
+
+.comments_author h6, .comments_content h6 {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+#no_comment {
+    border-bottom : solid 2px #ced4da;
+    border-radius: 2px;
+}
+
+#no_comment p {
+    padding: 0 20px;    
+    font-style: italic;
+}
+
+.comments_author h4 {
+    font-weight: lighter;
+}
+
+.comment_head {
+    display: flex;
+    background-color: #8cc293;
+    border-bottom : solid 2px #ced4da;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-family: 'Parisienne';
+    font-weight: bold;
+}
+
+.comment_head h4 {
+    padding: 10px 0 5px 20px;
+}
+
+.comment_bar {
+    margin: 20px auto 20px 0;
+    color: #8cc293;
+}
+
+hr:not([size]) {
+    height: 2px;
+}
+
+.comments_list h4 {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#comment_connect {
+    margin: 100px auto 50px auto;
+}
+
+.comment-input {
+    width: 70%;
+    margin:  0 auto;
+}
+
+.chatMessage-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chat-button .mb-3 {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------------ Snowtrick Show -------------------- */
 
 body > div.container.snowtrick-new, .container.snowtrick-show, .form-button {
     display: flex;
     flex-direction: column;
 }
 
-.snowtrick-new a, .snowtrick-show a, .form-button button {
+.show-action {
+    display:flex;
+    justify-content: end;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.resp-media-bloc {
+    display: none;
+}
+
+#comment-noconnected > p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#comment-noconnected {
+    margin: 50px auto;
+}
+
+#show-general {
+    border: 2px solid black;
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.action-bloc {
+    display:flex;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+body > div.container.snowtrick-show > div.snowtrick-title-show > div.show-action > div > a {
+    margin: 0;
+    padding: 10px 20px;
+}
+
+body > div.container.snowtrick-show > div.snowtrick-title-show > div.show-action > div > form > button {
+    margin: 10px 20px 10px 0;
+}
+
+.back-home-btn {
+    display: flex;
+}
+
+.back-home-btn a {
+    margin: 60px auto 80px auto;
+}
+
+.author-logo {
+    max-width: 50px;
+    max-height: 50px;
+    border: solid 2px green;
+    border-radius: 20px;
+    vertical-align: baseline;
+}
+
+.important-info {
+    display: flex;
+    justify-content: center;
+}
+
+.info-cell {
+    margin: 0 20px;
+    border: 3px solid black;
+}
+
+.author-pic {
+    margin-right: 20px;
+}
+
+.author-pic img {
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.snowtrick-new a, .snowtrick-show a, .form-button button, body > div.container.edit-page > a {
     margin: 60px auto;
     font-size: 20px;
     padding: 5px 50px;
@@ -111,8 +360,101 @@ body > div.container.snowtrick-new, .container.snowtrick-show, .form-button {
     padding: 5px 50px;
 }
 
+.row.row-cols-5 {
+    justify-content: space-around;
+}
+
+#picture-carousel img {
+    object-fit: cover;
+    height: 150px;
+    width: 180px;
+}
+
+#picture-carousel, #video-carousel {
+    width: 50%;
+}
+
+#picture-carousel {
+    margin-right: 10px;
+}
+
+.media-carousel {
+    display: flex;
+    justify-content: space-around;
+    margin: 80px 10px 40px 10px;
+}
+
+.hidden-block img, .hidden-block {
+    width: 50px;
+    height: 50px;
+}
+
+.hidden-block {
+    margin: 50px 140px 10px 0;
+    display: flex;
+}
+
+.hidden-block .collection-form {
+    margin: 5px 0 0 0;
+}
+
+#trick_pictures > div.container-fluid {
+    margin: 0 auto 10px auto;
+}
+
+.owl-carousel.owl-drag .owl-item {
+    text-align: center;
+}
+
+body > div.container.snowtrick-show > div.comment-input > div > form > div > div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+}
+
+body > div.container.snowtrick-show > div.comment-input > div > form > div > div:nth-child(2) {
+    text-align: center;
+}
+
+body > div.container.snowtrick-show > div.comment-input > div > form > div > div:nth-child(2) label {
+    padding-bottom: 20px;
+}
+
+/* ------------------ Edit page -------------------- */
+
+.edit-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-page #snowtrick_valider {
+    margin: 60px auto 0 auto;
+}
+
+body > div.container.edit-page > form:nth-child(3) > div.form-button > div, body > div.container.edit-page > form:nth-child(6) {
+    display: flex;
+    justify-content: center;
+}
+
+body > div.container.edit-page > form:nth-child(6) {
+    margin-bottom: 60px;
+}
+
+body > div.container.edit-page > form:nth-child(6) button {
+    font-size: 20px;
+    padding: 5px 50px;
+}
+
+body > div.container.edit-page > form:nth-child(6) button, #snowtrick_valider {
+    width: 20%;
+}
+
+
+
+/* ------------------ Index page -------------------- */
+
 .snowtrick-info {
     display: flex;
+    flex-direction: column;
 }
 
 .snowtrick-pic {
@@ -148,48 +490,230 @@ body > div.container.snowtrick-new, .container.snowtrick-show, .form-button {
     padding: 3px 6px 3px 6px;
 }
 
-.row.row-cols-5 {
-    justify-content: space-around;
+.load-trick {
+    display:flex;
 }
 
-#picture-carousel img {
-    object-fit: cover;
-    height: 150px;
-    width: 180px;
+.load-trick form {
+    margin: 40px auto 80px;
 }
 
-#picture-carousel, #video-carousel {
-    width: 50%;
-}
-
-#picture-carousel {
-    margin-right: 10px;
-}
-
-.media-carousel {
+.index-action, .index-to-new {
     display: flex;
-    justify-content: space-around;
-    margin: 80px 10px 80px 10px;
+    justify-content: center;
+    padding: 0 10px;
 }
 
-.hidden-block img, .hidden-block {
-    width: 50px;
-    height: 50px;
+.index-action .bi-pencil {
+    padding-top : 5px;
+    margin-right: 30px;
 }
 
-.hidden-block {
-    margin: 50px 140px 10px 0;
+.index-action {
+    margin-top: 10px;
+}
+
+#snowtrick-index > div > div > div.snowtrick-pic > img {
+    max-height: 100%;
+}
+
+.arrow-up {
     display: flex;
+    justify-content: end;
+    margin: 20px 20px 80px 0;
 }
 
-.hidden-block .collection-form {
-    margin: 5px 0 0 0;
+/* ------------------ Account settings page -------------------- */
+
+.account-settings {
+    margin-top: 50px;
 }
 
-#trick_pictures > div.container-fluid {
-    margin: 0 auto 50px auto;
-}
-
-.owl-carousel.owl-drag .owl-item {
+.settings-title {
     text-align: center;
+}
+
+.account-settings h4 {
+    font-family: 'Parisienne';
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo-modify {
+    margin: 30px 0 60px 0;
+}
+
+#logo-form legend {
+    font-size: 14px;
+    margin-bottom: 20px; 
+}
+
+.radio-bloc {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.radio-bloc img {
+    max-width: 48px; 
+    max-height: 48px;
+}
+
+#button-logo button {
+    margin: 30px auto 0 auto;
+}
+
+.logo-form-input {
+    margin-bottom: 20px;
+}
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------------ Pagination -------------------- */
+
+.pagination_bloc {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    max-width: 80%;
+    margin: 30px auto 0 auto;
+    gap: 2%;
+}
+
+.other_pagination, .actual_pagination {
+    margin: 0 20px 20px 10px;
+    background-color: #6c4ccc;
+    border: solid 2px #ced4da;
+    padding: 5px 0 0 0;
+    text-align: center;
+    width: 100%;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.other_pagination p, .actual_pagination p { 
+    margin-bottom: 0;
+    position: relative;
+    top: 50%; 
+    transform: translateY(-65%);
+}
+
+.other_pagination p { 
+    position: relative;
+    padding-top: 9px;
+}
+
+.actual_pagination {
+    color: white;
+}
+
+.other_pagination a {
+    color: #e07dc3;
+    text-decoration: none;
+    padding: 0;
+}
+
+/* ------------------ Login / Register -------------------- */
+
+.login-form, .register-form {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form-login, .form-register {
+    border: solid 2px black;
+    width: 40%;
+    padding: 30px 0;
+    margin: 0 auto 120px auto;
+}
+
+.form-login-input, .form-register .mb-3 {
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.form-login-input button, .form-register .mb-3 {
+    width: 60%;
+    margin: 20px auto 50px auto;
+}
+
+.form-login-input button {
+    margin-bottom: 0;
+}
+
+.account-created-resp {
+    margin-bottom: 50px;
+}
+
+.form-register .mb-3 {
+    text-align: center;
+}
+
+.form-register button {
+    margin: 20px auto 0 auto;
+}
+
+.form-register {
+    margin-bottom: 60px;
+}
+
+.account-created-resp {
+    margin-top: 10px;
+}
+
+.account-created-resp a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.account-created-resp a:hover {
+    color: rgb(211, 66, 211);
+}
+
+/* ------------------ Lost password -------------------- */
+
+.password-modify {
+    border: solid 2px black;
+    width: 40%;
+    padding: 30px 0;
+    margin: 50px auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.password-modify form {
+    width: 80%;
+    margin: auto;
+}
+
+.password-modify button {
+    margin: 20px auto 0 auto;
+}
+
+/* ------------------ Error pages -------------------- */
+
+.error-page {
+    margin: 80px auto;
+}
+
+.back-home-error a {
+    text-decoration: none;
+    color: rgb(235, 95, 235);
+    font-family: sans-serif;
+}
+
+.back-home-error a:hover {
+    text-decoration: none;
+    color: pink;
+}
+
+
+.error-page h3 {
+    margin-bottom: 30px;
 }

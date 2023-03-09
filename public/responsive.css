@@ -1,0 +1,352 @@
+/* --------------------------------- Mobile --------------------------------------- */
+
+@media screen and (max-width: 576px) {
+
+    /* --------------------------------- Header / Footer --------------------------------------- */
+
+        .footer-resp {
+            display: block;
+        }
+
+        .header-no-resp {
+            display: none;
+        }
+
+        .header-only-resp {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            padding-top: 10px;
+            color: rgb(158, 156, 156);
+            font-family: 'Parisienne';
+            font-size: 20px;
+        }
+
+        /* ------------------ Show -------------------- */
+
+        #show-general > div.content-show > p {
+            padding: 10px;
+        }
+
+        .important-info {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .info-cell {
+            margin: 0 20px 10px 0;        
+        }
+
+        .snowtrick-show {
+            width: 90%;
+        }
+
+        .media-carousel {
+            flex-direction: column;
+        }
+
+        .content-show, .comment-bloc {
+            width: 100%;
+        }
+
+        .content-show {
+            margin-bottom: 40px;
+        }
+
+        .comment-input {
+            width: 100%;
+        }
+
+        #no_comment p {
+            text-align: center;
+        }
+
+        .info-cell {
+            margin-right: 0;
+        }
+
+        .snowtrick-show {
+            margin-top: 40px;
+        }
+
+        .show-action {
+            margin-top: 0;
+        }
+
+        #picture-carousel, #video-carousel {
+            margin: 0 auto; 
+        }
+
+        #picture-carousel {
+            margin-bottom : 50px; 
+        }
+
+        #picture-carousel img {
+            width: 100%;
+        }
+
+        .resp-media-bloc {
+            display: block;
+        }
+
+        #pc-media {
+            display: none;
+        }
+
+        #load-media > form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #comment-noconnected {
+            margin: 20px auto;
+        }
+
+    /* --------------------------------- Account Settings --------------------------------------- */
+
+        #button-logo button {
+            margin: 10px auto 0 auto;
+        }
+
+        body > div.container.account-settings > div.password-modify > form > div.form-button > div {
+            display: flex;
+        }
+
+        #lost_password_confirmer {
+            margin: 30px auto 0 auto;
+        }
+
+        .logo-modify {
+            margin-bottom: 30px;
+        }
+
+        .radio-bloc {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .logo-title h4 {
+            text-align: center;
+        }
+
+    /* ------------------ Login /Register -------------------- */
+
+        .form-login, .form-register {
+            width: 90%;
+        }
+
+        .form-login-input, .form-register .mb-3 {
+            width: 80%;
+        }
+
+        .form-login-input button, .form-register .mb-3 {
+            width: 80%;
+        }
+
+    /* ------------------ Lost password -------------------- */
+
+        .password-modify {
+            width: 90%;
+        }
+
+    /* ------------------ Home -------------------- */
+
+        .home-bg a, .home-bg i {
+            position: relative;
+            top: 40px;
+            left: 0;
+        }
+
+        .home-bg {
+            margin-bottom: 20px;
+            background-image: url(website-pictures/global-resp-bg.jpg);
+        }
+
+        .sentence {
+            width: 90%;
+        }
+
+        .sentence p, .sentence h1 {
+            color: white;
+        }
+
+        .row.row-cols-5 {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .snowtrick-card {
+            width: 90%;
+        }
+
+        .copyright p {
+            padding: 0 3px;
+        }
+
+        /* ------------------ Pagination -------------------- */
+
+        .pagination_bloc {
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 0;
+        }
+
+        .comments_author {
+             width: 100%;
+        }
+
+        #show-general {
+            padding: 20px 10px; 
+        }
+
+    /* ------------------ Error pages -------------------- */
+
+        .error-page {
+            width: 90%;
+        }
+
+    /* ------------------ New -------------------- */
+
+    .collection-form, #trick_pictures button, #trick_videos button {
+        width: 100%;
+    }
+
+     /* ------------------ Edit -------------------- */
+
+     body > div.container.edit-page > form:nth-child(6) button, #snowtrick_valider {
+        width: 70%;
+    }
+
+    body > div.container.edit-page > a, .edit-page {
+        margin-top: 20px;
+    }
+
+}
+
+/* -------------------------------------------   Tablette ----------------------------------------------------- */
+
+@media screen and (min-width: 576px) and (max-width: 992px) { 
+
+     /* ------------------ Pagination -------------------- */
+
+     .pagination_bloc {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .comments_author {
+        width: 80%;
+   }
+
+    /* --------------------------------- Header / Footer --------------------------------------- */
+
+        .header-no-resp {
+            display: none;
+        }
+
+        .header-only-resp {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            padding-top: 10px;
+            color: rgb(158, 156, 156);
+            font-family: 'Parisienne';
+            font-size: 20px;
+        }
+
+        .footer-resp {
+            display: block;
+        }
+
+
+    /* ------------------ Login / Register -------------------- */
+
+        .form-login, .form-register {
+            width: 70%;
+        }
+
+        .form-login-input, .form-register .mb-3 {
+            width: 80%;
+        }
+
+        .form-login-input button, .form-register .mb-3 {
+            width: 80%;
+        }
+
+    /* ------------------ Lost password -------------------- */
+
+        .password-modify {
+            width: 70%;
+        }
+
+    /* ------------------ Home index -------------------- */
+
+        .row.row-cols-5 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .home-bg a, .home-bg i {
+            position: relative;
+            top: 40px;
+            left: 0;
+        }
+
+        .home-bg img {
+            width: 100%;
+        }
+
+        .home-bg {
+            margin-bottom: 20px;
+            background-image: url(website-pictures/global-bg.jpg);
+        }
+
+        .sentence p, .sentence h1 {
+            color: white;
+        }
+
+        .sentence p {
+            margin-top: 80px;
+        }
+
+        .snowtrick-card {
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .home-bg a:active, .home-bg a:visited, .home-bg a:link {
+            color: white;
+        }
+
+        /* ------------------ Error pages -------------------- */
+
+        .error-page {
+            width: 90%;
+        }
+
+        /* ------------------ Show -------------------- */
+
+        .important-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .info-cell {
+            margin: 0 20px 10px 0;        
+        }
+
+        .comment-bloc {
+            width: 100%;
+        }
+
+        .content-show {
+            width: 90%;
+        }
+
+        /* ------------------ Edit -------------------- */
+
+        body > div.container.edit-page > form:nth-child(6) button, #snowtrick_valider {
+            width: 40%;
+        }
+
+        body > div.container.edit-page > a, .edit-page {
+            margin-top: 30px;
+        }
+}
