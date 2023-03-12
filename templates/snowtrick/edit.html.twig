@@ -3,13 +3,13 @@
 {% block title %}Edition d'une figure{% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container edit-page">
+    <a href="{{ path('app_snowtrick_index') }}" class="btn btn-secondary ">Retourner sur la page d'accueil</a>
+
     <h1>Edition d'une figure</h1>
 
     {{ include('snowtrick/_form.html.twig', {'button_label': 'Modifier'}) }}
-
-    <a href="{{ path('app_snowtrick_index') }}" class="back-home btn btn-dark">Retourner sur la page d'accueil</a>
-
     {{ include('snowtrick/_delete_form.html.twig') }}
+    
 </div>
 {% endblock %}

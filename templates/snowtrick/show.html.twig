@@ -11,13 +11,31 @@
 {% endblock %}
 
 {% block body %}
-<div class="snowtrick-show">
 
-    <a href="{{ path('app_snowtrick_index') }}" class="back-home btn btn-dark">Retourner sur la page d'accueil</a>
+<div class="container snowtrick-show" id="show-general">
+    <div class="snowtrick-title-show">
+        {% if app.user == snowtrick.user or is_granted('ROLE_ADMIN') %}
+            <div class="show-action">
+                <div class="action-bloc">
+                    <a href="{{ path('app_snowtrick_edit', {'id': snowtrick.id}) }}"><i class="bi bi-pencil btn btn-warning" id="show-link-edit"></i></a>
+                    <form method="post" action="{{ path('app_snowtrick_delete', {'id': snowtrick.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer la figure ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ snowtrick.id) }}">
+                        <button class="btn btn-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        <div class ="snow-title">
+            <h1>{{ snowtrick.title }}</h1>
+        </div>
+    </div>
+    
 
-    <h1>Snowtrick</h1>
-
-    <div class="media-carousel"> 
+    <div class="media-carousel" id="pc-media"> 
         <div class="owl-carousel owl-pictures owl-theme" id="picture-carousel">
             {% for picture in pictures %}
                 <div class="item" style="width:200px">
@@ -34,87 +52,122 @@
             {% endfor %}
         </div>
     </div>
-
-    <div class="container">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>Id</th>
-                    <td>{{ snowtrick.id }}</td>
-                </tr>
-                <tr>
-                    <th>Title</th>
-                    <td>{{ snowtrick.title }}</td>
-                </tr>
-                <tr>
-                    <th>Author</th>
-                    <td>{{ snowtrick.author }}</td>
-                </tr>
-                <tr>
-                    <th>Slug</th>
-                    <td>{{ snowtrick.slug }}</td>
-                </tr>
-                <tr>
-                    <th>Content</th>
-                    <td>{{ snowtrick.content|raw }}</td>
-                </tr>
-                <tr>
-                    <th>CreationDate</th>
-                    <td>{{ snowtrick.creationDate ? snowtrick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
-                </tr>
-                <tr>
-                    <th>ModificationDate</th>
-                    <td>{{ snowtrick.modificationDate ? snowtrick.modificationDate|date('Y-m-d H:i:s') : '' }}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        {% if app.user == snowtrick.user %}
-            <a href="{{ path('app_snowtrick_edit', {'id': snowtrick.id}) }}" class="btn btn-success">Modifier</a>
-        {% endif %}
-
-        {% if app.user == snowtrick.user %}
-            {{ include('snowtrick/_delete_form.html.twig') }}
-        {% endif %}
-
-        <div class="comment-bloc">
-            <div class="comment-bloc-title">
-                <h3>Chat<h3>
+    
+    <div class="resp-media-bloc">
+        {% if isLoaded is null %}
+            <div id="load-media">
+                <form action="{{ path('app_snowtrick_show', {'slug': snowtrick.slug, 'id': snowtrick.id, 'page': 1 })}}#resp-media" method="post">
+                        <input type="hidden" name="loadmore" value="loadmore">
+                        <button class="btn btn-dark" type="submit">Charger les médias</button>
+                </form>
             </div>
-            <div class="comment-bloc-messages">
-                {% if chatMessages %}
-                    {% for chatMessage in chatMessages %}
-                        <div class="comments_author">
-                            <h6>
-                                <em>{{ chatMessage.creationDate }} - <strong>{{ chatMessage.user.nickname }} {{ chatMessage.user.name }}</strong></em> a écrit : 
-                            </h6>
+        {% else %}
+            <div class="media-carousel carousel-resp" id="resp-media"> 
+                <div class="owl-carousel owl-pictures owl-theme" id="picture-carousel">
+                    {% for picture in pictures %}
+                        <div class="item" style="width:200px">
+                            <img src="{{ asset('snowtrick_picture/') }}{{ picture.fileName }}"/>
                         </div>
-
-                        <div class="comments_content">
-                            <h6>
-                                {{ chatMessage.content }}                    
-                            </h6>
-                        </div>
-                        
-                        <hr class="comment_bar"> 
                     {% endfor %}
-                {% else %}
-                    <p>Il n'y a aucun message dans le chat pour l'instant sur cette figure.</p>
-                {% endif %}
-            </div>
-        </div>
+                </div>
 
-        <div class="comment-input">
-            {% if app.user %}
-                {{ include('chatMessage/_chatMessage-form.html.twig') }}
+                <div class="owl-carousel owl-videos owl-theme" id="video-carousel">
+                    {% for video in snowtrick.videos %}
+                        <div class="item">
+                            <iframe width="180" height="150" src="https://www.youtube.com/embed/{{ video.videoId }}" allow="encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="content-show">
+        {{ snowtrick.content|raw }}
+    </div>
+
+    <div class="important-info">
+        <div class="info-cell btn btn-secondary">
+            {{ snowtrick.author }}
+        </div>
+        <div class="info-cell btn btn-secondary">
+            {{ snowtrick.trickGroup.label }}
+        </div>
+        <div class="info-cell btn btn-secondary">
+            Création > {{ snowtrick.creationDate|date('d/m/Y') }}
+        </div>
+        {% if snowtrick.modificationDate is not empty %}
+            <div class="info-cell btn btn-secondary">
+                Dernière modification > {{ snowtrick.modificationDate|date('d/m/Y') }}
+            </div>  
+        {% endif %}
+    </div>
+
+    <hr class="show-separation">
+
+    <div class="comment-input">
+        {% if app.user %}
+            {{ include('chatMessage/_chatMessage-form.html.twig') }}
+        {% else %}
+            <div id="comment-noconnected" class="alert-danger alert" role="alert">
+                <p>Vous devez vous connecter pour laisser un message dans le chat.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <hr class="show-separation">
+
+    <div class="comment-bloc" id="comment_anchor">
+        <div class="comments_list">
+            {% if chatMessages %}
+                {% for chatMessage in chatMessages %}
+                    <div class="chat-bloc">
+                        <div class="author-pic">
+                            <img src="{{ asset('users_logo/') }}{{ chatMessage.user.logo }}" class="author-logo">
+                        </div>
+                        <div class="comments_author">
+                            <div class="author-name">
+                                <h6>
+                                    <em><strong>{{ chatMessage.user.nickname }} {{ chatMessage.user.name }}</strong></em> a écrit le {{ chatMessage.creationDate|date('d/m/Y H:i:s') }} : 
+                                </h6>
+                            </div>
+                            <div class="show-content">
+                                <h6>
+                                    {{ chatMessage.content }}                    
+                                </h6>
+                            </div>
+                        </div> 
+                    </div>
+                {% endfor %}
             {% else %}
-                <div id="comment-noconnected" class="alert-danger alert" role="alert">
-                    <p>Vous devez vous connecter pour laisser un message dans le chat.</p>
+                <div class="comments_list" id="no_comment">
+                    <p>Il n'y a aucun message dans le chat pour l'instant.</p>
                 </div>
             {% endif %}
         </div>
     </div>
+
+    {% if chatMessages is not empty %}
+        <div class="pagination_bloc row">
+            {% for i in 1..pageNumber %} 
+                {% if i == currentPage %}
+                    <div class="actual_pagination col-1">
+                        <p>{{ i }}</p>
+                    </div>
+                {% else %}
+                    <div class="other_pagination">
+                        <a href="{{ path('app_snowtrick_show', {'slug': snowtrick.slug, 'id': snowtrick.id, 'page': i })}}#comment_anchor"><p>{{ i }}</p></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>
+
+<div class="back-home-btn">
+    <a href="{{ path('app_snowtrick_index') }}" class="btn btn-dark">Retourner sur la page d'accueil</a>
+</div>
+
 {% endblock %}
 
 {% block javascripts %}

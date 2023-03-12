@@ -19,7 +19,7 @@ class TrickGroup
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique:true)]
     #[Assert\NotBlank(message: 'Le nom du groupe doit être renseigné.')]
     #[Assert\Length(
         min: 2,

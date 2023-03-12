@@ -13,13 +13,13 @@ class FileUploader extends AbstractController
     private $targetDirectory;
     private $slugger;
 
-    public function __construct($targetDirectory, SluggerInterface $slugger)
+    public function __construct(mixed $targetDirectory, SluggerInterface $slugger)
     {
         $this->targetDirectory = $targetDirectory;
         $this->slugger = $slugger;
     }
 
-    public function upload(UploadedFile $file)
+    public function upload(UploadedFile $file) : string
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $safeFilename = $this->slugger->slug($originalFilename);
@@ -37,7 +37,7 @@ class FileUploader extends AbstractController
         return $fileName;
     }
 
-    public function uploadImages(Snowtrick $snowtrick)
+    public function uploadImages(Snowtrick $snowtrick) : void
     {
         foreach($snowtrick->getPictures() as $picture)
         {
@@ -51,7 +51,7 @@ class FileUploader extends AbstractController
         }
     }
 
-    public function uploadVideos(Snowtrick $snowtrick)
+    public function uploadVideos(Snowtrick $snowtrick) : void
     {
         foreach ($snowtrick->getVideos() as $video) {
 
@@ -69,7 +69,7 @@ class FileUploader extends AbstractController
         }
     }
 
-    public function getTargetDirectory()
+    public function getTargetDirectory() : mixed
     {
         return $this->targetDirectory;
     }

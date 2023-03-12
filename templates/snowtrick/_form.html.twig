@@ -6,7 +6,7 @@
 
     <div id="trick_pictures" data-prototype="{{ include('snowtrick/_picture.html.twig', {form: form.pictures.vars.prototype})|e("html_attr") }}" data-index="{{ form.pictures|length > 0 ? form.pictures|last.vars.name + 1 : 0 }}">
         <h4>Images</h4>
-        <div class="container-fluid">
+        <div class="container-fluid pic-container">
             <div class="row row-cols-5">
                 {% for picture in form.pictures %}
                     {% if picture %}

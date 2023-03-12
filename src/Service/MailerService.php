@@ -16,7 +16,7 @@ class MailerService
         $this->mailer = $mailerInterface;
     }
 
-    public function sendRegistrationEmail(User $user)
+    public function sendRegistrationEmail(User $user) : void
     {
         $email = (new TemplatedEmail())
             ->from('erwan.carlini@orange.fr')
@@ -30,7 +30,7 @@ class MailerService
         $this->mailer->send($email);
     }
 
-    public function sendResetPasswordEmail(User $user)
+    public function sendResetPasswordEmail(User $user) : void
     {
         $email = (new TemplatedEmail())
             ->from('erwan.carlini@orange.fr')

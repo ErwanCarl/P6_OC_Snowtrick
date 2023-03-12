@@ -52,10 +52,9 @@ class ChatMessage
         return $this;
     }
 
-    public function getCreationDate(): ?string
+    public function getCreationDate(): ?\DateTimeImmutable
     {
-        $creationDateDisplay = $this->creationDate->format('d-m-Y H:i:s');
-        return $creationDateDisplay;
+        return $this->creationDate;
     }
 
     public function setCreationDate(\DateTimeImmutable $creationDate): self

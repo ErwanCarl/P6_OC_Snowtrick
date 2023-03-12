@@ -95,10 +95,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $accountKey = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Snowtrick::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Snowtrick::class, orphanRemoval: true, cascade:["persist", "remove"])]
     private Collection $snowtricks;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ChatMessage::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ChatMessage::class, orphanRemoval: true, cascade:["persist", "remove"])]
     private Collection $chatMessages;
 
     #[ORM\Column(type: 'boolean')]
@@ -121,7 +121,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->mail;
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials() : void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;

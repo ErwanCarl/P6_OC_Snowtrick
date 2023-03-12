@@ -41,7 +41,7 @@ class LoginSubscriber extends AbstractController implements EventSubscriberInter
     {
         $this->addFlash(
             'danger',
-            'Vos identifiants sont erronés ou votre compte n\'est peut être pas activé, veuillez vérifier vos mails ou réassayer de vous connecter.'
+            'Vos identifiants sont erronés ou votre compte n\'est peut être pas activé, veuillez vérifier vos mails ou réessayer de vous connecter.'
         );
 
         $response = new RedirectResponse(

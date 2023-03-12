@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PictureRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: PictureRepository::class)]
@@ -44,12 +45,12 @@ class Picture
         return $this;
     }
 
-    public function getFile()
+    public function getFile() : UploadedFile
     {
         return $this->file;
     }
 
-    public function setFile($file): self
+    public function setFile(UploadedFile $file): self
     {
         $this->file = $file;
 
